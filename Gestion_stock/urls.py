@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Stock.views import  Produits, Ventes, AjP,AjV
+from .views import Index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('produits/',Produits,name='produits'),
+    path('',Index,name='dashboard'),
+   # path('vente/<Id_Produit>/',Vente,name='vente'),
+   path('vente/',Ventes,name='vente'),
+    path('ajp/',AjP,name='ajp'),
+    path('AjV/',AjV,name='AjV'),
+
+
 ]

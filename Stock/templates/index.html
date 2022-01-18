@@ -51,7 +51,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">{{ supplier }}</span></div>
+                                <div class="stat-text"><span class="count">{{ Utilisateur }}</span></div>
                                 <div class="stat-heading">Utilisateur</div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">{{ buyer }}</span></div>
+                                <div class="stat-text"><span class="count">{{ Utilisateur }}</span></div>
                                 <div class="stat-heading">Admin</div>
                             </div>
                         </div>
@@ -88,56 +88,18 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Orders </h4>
+                        <h4 class="box-title"></h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
                             <table class="table ">
                                 <thead>
                                     <tr>
-                                        <th class="serial">#</th>
-                                        <th>Supplier</th>
-                                        <th>Produits</th>
-                                        <th>Design</th>
-                                        <th>Color</th>
-                                        <th>Buyer</th>
-                                        
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% if orders %}
-                                    {% for order in orders %}
-                                    <tr>
-                                        <td class="serial">{{ forloop.counter }}</td>
-                                        <td>{{ order.supplier }}</td>
-                                        <td>{{ order.Produits }}</td>
-                                        <td>{{ order.design }}</td>
-                                        <td>{{ order.color }}</td>
-                                        <td>{{ order.buyer }}</td>
-                                        
-                                        <td>{{ order.created_date }}</td>
-                                        <td>
-                                            {% if order.status == 'pending' %}
-                                                <a class="btn btn-warning" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'decline' %}
-                                                <a class="btn btn-danger" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'complete' %}
-                                                <a class="btn btn-success" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'approved' %}
-                                                <a class="btn btn-primary" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'bulk' %}
-                                                <a class="btn btn-secondary" href="">{{ order.status }}</a>
-                                            {% else %}
-                                                <a class="btn btn-info" href="">{{ order.status }}</a>
-                                            {% endif %}
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                    {% else %}
-                                        <tr><td>No Order Data</td></tr>
-                                    {% endif %}
+                                   
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->

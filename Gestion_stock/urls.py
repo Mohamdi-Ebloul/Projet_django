@@ -15,17 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Stock.views import  Produits, Ventes, AjP,AjV
+from Stock.views import  Produitss, Ventes, AjP,AjV,AjL,AjM,Libelles,Marques,delv,delm,delp,dell
 from .views import Index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('produits/',Produits,name='produits'),
+    path('produits/',Produitss,name='produits'),
     path('',Index,name='dashboard'),
-   # path('vente/<Id_Produit>/',Vente,name='vente'),
-   path('vente/',Ventes,name='vente'),
+    path('delv/<id>/',delv,name='delv'),
+    path('dell/<id>/',dell,name='dell'),
+    path('delm/<id>/',delm,name='delm'),
+    path('delp/<id>/',delp,name='delp'),
+    path('vente/',Ventes,name='vente'),
     path('ajp/',AjP,name='ajp'),
     path('AjV/',AjV,name='AjV'),
+    path('ajl/',AjL,name='ajl'),
+    path('ajm/',AjM,name='ajm'),
+    path('Marque/',Marques,name='Marque'),
+    path('Libelle/',Libelles,name='Libelle'),
 
 
 ]

@@ -1,24 +1,66 @@
 from django import forms
 from django.forms.widgets import Widget
+from .models import Marque, Produits, Vente,Libelle
 
-class PEnregistrer(forms.Form):
-    Produit=forms.CharField(required=True,widget=forms.TextInput())
-    Type=forms.CharField(required=True,widget=forms.TextInput())
-    PrixU=forms.CharField(required=True,widget=forms.TextInput())
-    Quantitee=forms.CharField(required=True,widget=forms.TextInput())
-    PrixT=forms.CharField(required=True,widget=forms.TextInput())
 
-'''''
-class VEnregistrer(forms.Form):
-    Produit=forms.CharField(required=True,widget=forms.TextInput())
-    Type=forms.CharField(required=True,widget=forms.TextInput())
-    PrixU=forms.CharField(required=True,widget=forms.TextInput())
-    Quantitee=forms.CharField(required=True,widget=forms.TextInput())
-    PrixT=forms.CharField(required=True,widget=forms.TextInput())
-    date=forms.CharField(required=True,widget=forms.TextInput())
-'''''
-from .models import Produits, Vente
+class LEnregistrer(forms.ModelForm):
+     class Meta:
+        model = Libelle
+        fields = [
+            'Produit'
+        ]
 
+        widgets = {
+            'Produit': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Produit'
+            }),     
+            
+        }
+
+class MEnregistrer(forms.ModelForm):
+     class Meta:
+        model = Marque
+        fields = [
+            'Type'
+        ]
+
+        widgets = {
+            'Type': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Type'
+            }),     
+            
+        }
+
+
+
+class PEnregistrer(forms.ModelForm):
+    class Meta:
+        model = Produits
+        fields = [
+            'Produit', 'Type', 'PrixU', 'Quantitee', 'PrixT'
+        ]
+
+        widgets = {
+            'Produit': forms.Select(attrs={
+                'class': 'form-control', 'id': 'Produit'
+            }),
+            'Type': forms.Select(attrs={
+                'class': 'form-control', 'id': 'Type'
+            }),
+    
+            'PrixU': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'PrixU'
+            }),
+            'Quantitee': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Quantitee'
+            }),
+            
+            'PrixT': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'PrixT'
+            }),
+            
+            
+        }
 
 class OrderForm(forms.ModelForm):
     class Meta:
@@ -31,7 +73,7 @@ class OrderForm(forms.ModelForm):
             'Produit': forms.Select(attrs={
                 'class': 'form-control', 'id': 'Produit'
             }),
-            'Type': forms.TextInput(attrs={
+            'Type': forms.Select(attrs={
                 'class': 'form-control', 'id': 'Type'
             }),
     

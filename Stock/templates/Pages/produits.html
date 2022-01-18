@@ -10,7 +10,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Acceil</h1>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                                 <th>PrixU</th>
                                 <th>Quantitee</th>
                                 <th>PrixT</th>
-                                
+                                <th></th>
                                 
                             </tr>
                         </thead>
@@ -62,13 +62,13 @@
                                 <td>{{produits.PrixU}}</td>
                                 <td>{{produits.Quantitee}}</td>
                                 <td>{{produits.PrixT}}</td>
-                                
+                                <td class="btn-sm"><a href="{% url 'delp' produits.id %}">suprimer</a></td>
                               
                                
                             </tr>
                             {% endfor %}
                             
-                                <tr><td>No Order Data</td></tr>
+                                
                             
                         </tbody>
                     </table>

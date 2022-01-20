@@ -1,10 +1,11 @@
 from django.contrib import admin
 
-from Stock.models import Produits, Vente,Marque,Libelle
+from Stock.models import StockEn, Sorti,Service,Fournisseur,STOCK
 
 # Register your models here.
 
-admin.site.register(Produits)
-admin.site.register(Vente)
-admin.site.register(Marque)
-admin.site.register(Libelle)
+admin.site.register(StockEn)
+admin.site.register(Sorti)
+admin.site.register(Service)
+admin.site.register(Fournisseur)
+admin.site.register(STOCK)

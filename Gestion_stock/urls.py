@@ -15,24 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Stock.views import  Produitss, Ventes, AjP,AjV,AjL,AjM,Libelles,Marques,delv,delm,delp,dell
+from Stock.views import  Stocks, Sortis, AjP,AjV,AjL,AjM,Fournisseurs,Services,delv,delm,delp,dell,STOCKS,AJS
 from .views import Index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('produits/',Produitss,name='produits'),
+    path('Stocks/',Stocks,name='Stocks'),
     path('',Index,name='dashboard'),
     path('delv/<id>/',delv,name='delv'),
     path('dell/<id>/',dell,name='dell'),
     path('delm/<id>/',delm,name='delm'),
     path('delp/<id>/',delp,name='delp'),
-    path('vente/',Ventes,name='vente'),
-    path('ajp/',AjP,name='ajp'),
-    path('AjV/',AjV,name='AjV'),
+    path('sorti/',Sortis,name='sorti'),
+    path('ajp/<id>/',AjP,name='ajp'),
+    path('AjV/<id>/',AjV,name='AjV'),
     path('ajl/',AjL,name='ajl'),
     path('ajm/',AjM,name='ajm'),
-    path('Marque/',Marques,name='Marque'),
-    path('Libelle/',Libelles,name='Libelle'),
+    path('Service/',Services,name='Service'),
+    path('Fournisseur/',Fournisseurs,name='Fournisseur'),
+    path('STOCKS/',STOCKS,name='STOCKS'),
+    path('ajs/',AJS,name='ajs'),
+    
 
 
 ]

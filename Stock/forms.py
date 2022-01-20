@@ -1,32 +1,33 @@
 from django import forms
 from django.forms.widgets import Widget
-from .models import Marque, Produits, Vente,Libelle
+
+from .models import Service, StockEn,Sorti,Fournisseur,STOCK
 
 
-class LEnregistrer(forms.ModelForm):
+class FEnregistrer(forms.ModelForm):
      class Meta:
-        model = Libelle
+        model = Fournisseur
         fields = [
-            'Produit'
+            'Nom'
         ]
 
         widgets = {
-            'Produit': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'Produit'
+            'Nom': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Nom'
             }),     
             
         }
 
-class MEnregistrer(forms.ModelForm):
+class SEnregistrer(forms.ModelForm):
      class Meta:
-        model = Marque
+        model = Service
         fields = [
-            'Type'
+            'Nom'
         ]
 
         widgets = {
-            'Type': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'Type'
+            'Nom': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Nom'
             }),     
             
         }
@@ -35,28 +36,21 @@ class MEnregistrer(forms.ModelForm):
 
 class PEnregistrer(forms.ModelForm):
     class Meta:
-        model = Produits
+        model = StockEn
         fields = [
-            'Produit', 'Type', 'PrixU', 'Quantitee', 'PrixT'
+            'QTEn', 'Fournisseur'
         ]
 
         widgets = {
-            'Produit': forms.Select(attrs={
-                'class': 'form-control', 'id': 'Produit'
-            }),
-            'Type': forms.Select(attrs={
-                'class': 'form-control', 'id': 'Type'
-            }),
-    
-            'PrixU': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'PrixU'
-            }),
-            'Quantitee': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'Quantitee'
-            }),
             
-            'PrixT': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'PrixT'
+            
+            'QTEn': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTEn'
+            }),
+           
+           
+            'Fournisseur': forms.Select(attrs={
+                'class': 'form-control', 'id': 'Fournisseur'
             }),
             
             
@@ -64,29 +58,85 @@ class PEnregistrer(forms.ModelForm):
 
 class OrderForm(forms.ModelForm):
     class Meta:
-        model = Vente
+        model = Sorti
         fields = [
-            'Produit', 'Type', 'PrixU', 'Quantitee', 'PrixT'
+             'Service',  'QTS'
         ]
 
         widgets = {
-            'Produit': forms.Select(attrs={
-                'class': 'form-control', 'id': 'Produit'
-            }),
-            'Type': forms.Select(attrs={
-                'class': 'form-control', 'id': 'Type'
+            
+            'Service': forms.Select(attrs={
+                'class': 'form-control', 'id': 'Service'
             }),
     
-            'PrixU': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'PrixU'
+            'QTS': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTS'
             }),
-            'Quantitee': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'Quantitee'
+           
+            
+            
+        }
+
+class StockEr(forms.ModelForm):
+    class Meta:
+        model = STOCK
+        fields = [
+            'Designation', 'QTEx', 'QTEn','QTS','QTR'
+        ]
+
+        widgets = {
+            'Designation': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Designation'
             }),
             
-            'PrixT': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'PrixT'
+            'QTEx': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTEx'
+            }),
+            'QTEn': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTEn'
+            }),
+           'QTS': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTEn'
+            }),
+            'QTR': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTR'
             }),
             
+            
+            
+        }
+class SE(forms.ModelForm):
+    class Meta:
+        model = STOCK
+        fields = [
+            'Designation'
+        ]
+
+        widgets = {
+            'Designation': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Designation'
+            }),
+        }
+
+
+class Sr(forms.ModelForm):
+    class Meta:
+        model = STOCK
+        fields = [
+            'QTEx', 'QTEn','QTR'
+        ]
+
+        widgets = {
+           
+            
+            'QTEx': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTEx'
+            }),
+            'QTEn': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTEn'
+            }),
+            'QTR': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'QTR'
+            }),
             
         }

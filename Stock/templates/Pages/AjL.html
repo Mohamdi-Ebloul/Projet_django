@@ -1,7 +1,7 @@
 
 {% extends 'base/base.html' %}
 
-{% block title %}Create Produit{% endblock title %}
+{% block title %}Create Fournisseur{% endblock title %}
 
 {% block breadcrumbs %}
 <div class="breadcrumbs">
@@ -19,7 +19,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Acceil</a></li>
-                            <li><a href="#">Produit</a></li>
+                            <li><a href="#">Fournisseur</a></li>
                             <li class="active">Ajouter</li>
                         </ol>
                     </div>
@@ -45,8 +45,8 @@
                             {% csrf_token %}
                             
                             <div class="form-group">
-                                <label for="sortno" class="control-label mb-1">Produit</label>
-                                {{ form.Produit }}
+                                <label for="sortno" class="control-label mb-1">Nom</label>
+                                {{ form.Nom }}
                             </div>
                            
                             

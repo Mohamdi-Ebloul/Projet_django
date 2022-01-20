@@ -1,15 +1,15 @@
 from django.shortcuts import render
 
-from Stock.models import Produits, Vente
+from Stock.models import StockEn, Sorti
 
 
 def Index(request):
-    total_Produits = Produits.objects.count()
-    total_Vente = Vente.objects.count()
+    total_Stock = StockEn.objects.count()
+    total_Sorti = Sorti.objects.count()
     
     context = {
-        'Produits': total_Produits,
-        'Vente': total_Vente,
+        'Stock': total_Stock,
+        'Sorti': total_Sorti,
         
                   }
     return render(request,'index.html',context)

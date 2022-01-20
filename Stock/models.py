@@ -4,33 +4,41 @@ from django.db import models
 
 # Create your models here.
 
-class Libelle(models.Model):
-    Produit=models.CharField(max_length=30)
+class Fournisseur(models.Model):
+    Nom=models.CharField(max_length=30)
     def __str__(self):
-        return self.Produit
+        return self.Nom
 
-class Marque(models.Model):
-    Type=models.CharField(max_length=30)
+class Service(models.Model):
+    Nom=models.CharField(max_length=30)
     def __str__(self):
-        return self.Type
+        return self.Nom
 
 
-class Produits(models.Model):
-    Produit=models.ForeignKey(Libelle, on_delete=models.CASCADE)
-    Type=models.ForeignKey(Marque, on_delete=models.CASCADE)
-    Quantitee=models.IntegerField(default=0)
-    PrixU=models.IntegerField(default=0)
-    PrixT=models.IntegerField(default=0)
+class STOCK(models.Model):
+    Designation=models.CharField(max_length=30)
+    QTEx=models.IntegerField(default=0)
+    QTEn=models.IntegerField(default=0)
+    QTS=models.IntegerField(default=0)
+    QTR=models.IntegerField(default=0)
     def __str__(self):
-        return self.Produit.Produit
+        return self.Designation
     
-
-class Vente(models.Model):
-    Produit=models.ForeignKey(Produits, on_delete=models.CASCADE)
-    Type=models.ForeignKey(Marque, on_delete=models.CASCADE)
-    Quantitee=models.IntegerField(default=0)
-    PrixU=models.IntegerField(default=0)
-    PrixT=models.IntegerField(default=0)
+class StockEn(models.Model):
+    Designation=models.ForeignKey(STOCK, on_delete=models.CASCADE)
+    QTEx=models.IntegerField()
+    QTEn=models.IntegerField()
+    QTR=models.IntegerField()
+    Fournisseur=models.ForeignKey(Fournisseur, on_delete=models.CASCADE)
     date=models.DateField(auto_now_add=True)
-    
    
+
+class Sorti(models.Model):
+    Designation=models.ForeignKey(STOCK, on_delete=models.CASCADE)
+    Service=models.ForeignKey(Service, on_delete=models.CASCADE)
+    QTEx=models.IntegerField()
+    QTS=models.IntegerField()
+    QTR=models.IntegerField()
+    date=models.DateField(auto_now_add=True)
+
+

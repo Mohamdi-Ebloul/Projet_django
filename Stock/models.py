@@ -30,20 +30,7 @@ class Admins(models.Model):
 
     def __str__(self):
         return self.name
-'''
 
-class Utlisateur(models.Model):
-    name = models.CharField(max_length=120, unique=True)
-    address = models.EmailField(max_length=220)
-    login=models.CharField(max_length=220)
-    Password=models.IntegerField()
-    Type=models.CharField(max_length=220)
-    Stock=models.CharField(max_length=220)
-    created_date = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.name
-'''
 class Fournisseur(models.Model):
     Nom=models.CharField(max_length=30)
     Abrevation=models.CharField(max_length=30)

@@ -4,17 +4,138 @@ from django.forms.widgets import Widget
 from .models import Service, StockEn,Sorti,Fournisseur,STOCK
 
 
+
+class LoginForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Username',
+    }))
+    password = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Password',
+        'type': 'password'
+    }))
+
+
+
+class UtilisateurForm(forms.Form):
+    name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'name',
+        'data-val': 'true',
+        'data-val-required': 'Please enter name',
+    }))
+    address = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'address',
+        'data-val': 'true',
+        'data-val-required': 'Please enter address',
+    }))
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'id': 'email',
+        'data-val': 'true',
+        'data-val-required': 'Please enter email',
+    }))
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'username',
+        'data-val': 'true',
+        'data-val-required': 'Please enter username',
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'id': 'password',
+        'data-val': 'true',
+        'data-val-required': 'Please enter password',
+    }))
+    retype_password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'id': 'retype_password',
+        'data-val': 'true',
+        'data-val-required': 'Please enter retype_password',
+    }))
+
+
+class AdminForm(forms.Form):
+    name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'name',
+        'data-val': 'true',
+        'data-val-required': 'Please enter name',
+    }))
+    address = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'address',
+        'data-val': 'true',
+        'data-val-required': 'Please enter address',
+    }))
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'id': 'email',
+        'data-val': 'true',
+        'data-val-required': 'Please enter email',
+    }))
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'username',
+        'data-val': 'true',
+        'data-val-required': 'Please enter username',
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'id': 'password',
+        'data-val': 'true',
+        'data-val-required': 'Please enter password',
+    }))
+    retype_password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'id': 'retype_password',
+        'data-val': 'true',
+        'data-val-required': 'Please enter retype_password',
+    }))
+
+
+
+
+
+
+
+
+
 class FEnregistrer(forms.ModelForm):
      class Meta:
         model = Fournisseur
         fields = [
-            'Nom'
+            'Nom','Abrevation','NomDirecteur','Nif','Tel','Email','Domaine','RC'
         ]
 
         widgets = {
             'Nom': forms.TextInput(attrs={
                 'class': 'form-control', 'id': 'Nom'
-            }),     
+            }),
+            'Abrevation': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Abrevation'
+            }),
+            'NomDirecteur': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'NomDirecteur'
+            }), 
+            'Nif': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Nif'
+            }), 
+            'Tel': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Tel'
+            }), 
+            'Email': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Email'
+            }), 
+            'Domaine': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'Domaine'
+            }), 
+            'RC': forms.TextInput(attrs={
+                'class': 'form-control', 'id': 'RC'
+            }), 
+                
             
         }
 
@@ -34,7 +155,7 @@ class SEnregistrer(forms.ModelForm):
 
 
 
-class PEnregistrer(forms.ModelForm):
+class EntrerEnregistrer(forms.ModelForm):
     class Meta:
         model = StockEn
         fields = [
@@ -56,7 +177,7 @@ class PEnregistrer(forms.ModelForm):
             
         }
 
-class OrderForm(forms.ModelForm):
+class SortieEnregistrer(forms.ModelForm):
     class Meta:
         model = Sorti
         fields = [
@@ -77,35 +198,8 @@ class OrderForm(forms.ModelForm):
             
         }
 
-class StockEr(forms.ModelForm):
-    class Meta:
-        model = STOCK
-        fields = [
-            'Designation', 'QTEx', 'QTEn','QTS','QTR'
-        ]
 
-        widgets = {
-            'Designation': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'Designation'
-            }),
-            
-            'QTEx': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'QTEx'
-            }),
-            'QTEn': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'QTEn'
-            }),
-           'QTS': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'QTEn'
-            }),
-            'QTR': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'QTR'
-            }),
-            
-            
-            
-        }
-class SE(forms.ModelForm):
+class StockEnregistrer(forms.ModelForm):
     class Meta:
         model = STOCK
         fields = [
@@ -119,24 +213,3 @@ class SE(forms.ModelForm):
         }
 
 
-class Sr(forms.ModelForm):
-    class Meta:
-        model = STOCK
-        fields = [
-            'QTEx', 'QTEn','QTR'
-        ]
-
-        widgets = {
-           
-            
-            'QTEx': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'QTEx'
-            }),
-            'QTEn': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'QTEn'
-            }),
-            'QTR': forms.TextInput(attrs={
-                'class': 'form-control', 'id': 'QTR'
-            }),
-            
-        }

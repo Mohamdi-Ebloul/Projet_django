@@ -47,8 +47,6 @@
                                 
                                 <th>QTEx</th>
                                 <th>QTEn</th>
-                                
-                                <th>QTR</th>
                                 <th>Fournisseur</th>
                                 <th>date</th>
                                 <th></th>
@@ -66,11 +64,11 @@
                                 <td>{{Stock.QTEx}}</td>
                                 <td>{{Stock.QTEn}}</td>
                                
-                                <td>{{Stock.QTR}}</td>
+                                
                                 <td>{{Stock.Fournisseur}}</td>
                                 <td>{{Stock.date}}</td>
                                 
-                                <td class="btn-sm"><a href="{% url 'delp' Stock.id %}">suprimer</a></td>
+                                <td class="btn-sm"><a href="{% url 'delStock' Stock.id %}">suprimer</a></td>
                               
                                
                             </tr>

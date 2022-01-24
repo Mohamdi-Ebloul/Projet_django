@@ -15,27 +15,36 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Stock.views import  Stocks, Sortis, AjP,AjV,AjL,AjM,Fournisseurs,Services,delv,delm,delp,dell,STOCKS,AJS
-from .views import Index
-
+from Stock.views import  ( Stocks, Sortis, StocknktEntrer,StocknktSortie,
+                          AjoutFournisseur,AjouteService,Fournisseurs,Services,
+                             delSortie,delService,delStock,delFournisseur,STOCKS,AjoutDesignation ,
+                             AjouterUtilisateur,UtilisateursListView,
+                             
+                             )
+from .views import Aceeil
+from .views import login_page, logout_page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Stocks/',Stocks,name='Stocks'),
-    path('',Index,name='dashboard'),
-    path('delv/<id>/',delv,name='delv'),
-    path('dell/<id>/',dell,name='dell'),
-    path('delm/<id>/',delm,name='delm'),
-    path('delp/<id>/',delp,name='delp'),
+    path('',Aceeil,name='Acceil'),
+    path('delSortie/<id>/',delSortie,name='delSortie'),
+    path('delFournisseur/<id>/',delFournisseur,name='delFournisseur'),
+    path('delService/<id>/',delService,name='delService'),
+    path('delStock/<id>/',delStock,name='delStock'),
     path('sorti/',Sortis,name='sorti'),
-    path('ajp/<id>/',AjP,name='ajp'),
-    path('AjV/<id>/',AjV,name='AjV'),
-    path('ajl/',AjL,name='ajl'),
-    path('ajm/',AjM,name='ajm'),
+    path('StocknktEntrer/<id>/',StocknktEntrer,name='StocknktEntrer'),
+    path('StocknktSortie/<id>/',StocknktSortie,name='StocknktSortie'),
+    path('AjoutFournisseur/',AjoutFournisseur,name='AjoutFournisseur'),
+    path('AjouteService/',AjouteService,name='AjouteService'),
     path('Service/',Services,name='Service'),
     path('Fournisseur/',Fournisseurs,name='Fournisseur'),
     path('STOCKS/',STOCKS,name='STOCKS'),
-    path('ajs/',AJS,name='ajs'),
-    
+    path('AjoutDesignation/',AjoutDesignation,name='AjoutDesignation'),
+    path('login/', login_page, name='login'),
+    path('logout/', logout_page, name='logout'),
+    path('Utilisateur/', UtilisateursListView.as_view(), name='Utilisateur'),
+    path('Ajouteuser/', AjouterUtilisateur, name='Ajouteuser'),
+
 
 
 ]

@@ -32,13 +32,13 @@ class Admins(models.Model):
         return self.name
 
 class Fournisseur(models.Model):
-    Nom=models.CharField(max_length=30)
-    Abrevation=models.CharField(max_length=30)
-    NomDirecteur=models.CharField(max_length=30)
+    Nom=models.CharField(max_length=100)
+    Abrevation=models.CharField(max_length=100)
+    NomDirecteur=models.CharField(max_length=100)
     Nif=models.IntegerField()
     Tel=models.IntegerField()
     Email=models.CharField(max_length=30)
-    Domaine=models.CharField(max_length=30)
+    Domaine=models.CharField(max_length=100)
     RC=models.IntegerField()
 
     def __str__(self):
@@ -52,7 +52,7 @@ class Service(models.Model):
 
 
 class STOCK(models.Model):
-    Designation=models.CharField(max_length=30)
+    Designation=models.CharField(max_length=100)
     QTEx=models.IntegerField(default=0)
     def __str__(self):
         return self.Designation

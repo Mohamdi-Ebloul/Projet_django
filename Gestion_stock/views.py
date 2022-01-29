@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from Stock.models import StockEn, Sorti
-
+from Stock.models import Service, StockEn, Sorti, STOCK,Utilisateurs,User
+from django.db.models import Max
 
 from django.contrib.auth import authenticate, login, logout
 from Stock.forms import LoginForm
@@ -30,13 +30,33 @@ def logout_page(request):
 
 @login_required(login_url='login')
 def Aceeil(request):
-    total_Stock = StockEn.objects.count()
-    total_Sorti = Sorti.objects.count()
     
+    
+    l=User.objects.filter()
+    
+
+    
+    total_Stocknkc = StockEn.objects.filter(STOCKT="nkc").count()
+    total_Sortinkc = Sorti.objects.filter(STOCKT="nkc").count()
+    total_Stockfm = StockEn.objects.filter(STOCKT="fm").count()
+    total_Sortifm = Sorti.objects.filter(STOCKT="fm").count()
+    ts1 = STOCK.objects.filter(STOCKT="nkc").count()
+    ts2 = STOCK.objects.filter(STOCKT="fm").count()
+    NPT = STOCK.objects.count()
+    #nbg = STOCK.objects.filter.count()
+    nservice=Service.objects.count()
+
     context = {
-        'Stock': total_Stock,
-        'Sorti': total_Sorti,
-        
+        #'nbg':nbg,
+        'NPT':NPT,
+        'Stocknkc': total_Stocknkc,
+        'Sortinkc': total_Sortinkc,
+         'Stockfm': total_Stockfm,
+        'Sortifm': total_Sortifm,
+        'tsnkc':ts1,
+        'tsfm':ts2,
+        'nservice':nservice,
+        'u':l
                   }
     return render(request,'Aceeil.html',context)
     

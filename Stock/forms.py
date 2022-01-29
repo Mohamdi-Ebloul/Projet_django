@@ -37,12 +37,13 @@ class UtilisateurForm(forms.Form):
         'data-val': 'true',
         'data-val-required': 'Please enter email',
     }))
-    username = forms.CharField(widget=forms.TextInput(attrs={
+    STOCKT = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'id': 'username',
+        'id': 'STOCKT',
         'data-val': 'true',
-        'data-val-required': 'Please enter username',
+        
     }))
+   
     password = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'id': 'password',
@@ -76,6 +77,7 @@ class AdminForm(forms.Form):
         'data-val': 'true',
         'data-val-required': 'Please enter email',
     }))
+    
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
         'id': 'username',
@@ -155,6 +157,7 @@ class SEnregistrer(forms.ModelForm):
 
 
 
+
 class EntrerEnregistrer(forms.ModelForm):
     class Meta:
         model = StockEn
@@ -210,6 +213,8 @@ class StockEnregistrer(forms.ModelForm):
             'Designation': forms.TextInput(attrs={
                 'class': 'form-control', 'id': 'Designation'
             }),
+         
+           
         }
 
 

@@ -5,6 +5,7 @@
 
 {% block content %}
     <!-- Widgets  -->
+    
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="card">
@@ -15,26 +16,42 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">{user }</span></div>
-                                <div class="stat-heading">Sorti</div>
+                                <div class="stat-text"><span class="count">{%if user.STOCKTNKT   %}
+                                    {{Stocknkc }}</span></div>
+                                    <div class="stat-heading">Nombre de Produit Entrer</div> {%endif%}
+                                    {%if user.STOCKTfl  %}
+                                    {{Stockfm }}</span></div>
+                                    <div class="stat-heading">Nombre de Produit Entrer</div>
+                                     {%endif%} {% if user.Utilisateur != True %} 
+                                     {{nservice }}  </span></div>
+                                <div class="stat-heading">Nombre de Service </div>  {%endif%} 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+
 
         <div class="col-lg-3 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="stat-widget-five">
                         <div class="stat-icon dib flat-color-2">
-                            <i class="fa fa-product-hunt"></i>
+                            <i class="fa fa-cart-plus"></i>
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">{{ name }}</span></div>
-                                <div class="stat-heading">Stock</div>
+                                <div class="stat-text"><span class="count">{%if user.STOCKTNKT   %}
+                                    {{Sortinkc }}</span></div>
+                                    <div class="stat-heading">Nombre de Produit Sortie</div> {%endif%}
+                                    {%if user.STOCKTfl  %}
+                                    {{Sortifm }} </span></div>
+                                <div class="stat-heading">Nombre de Produit Sortie</div>{%endif%}
+                                {% if user.Utilisateur != True %} 
+                                {{NPT }}  </span></div>
+                           <div class="stat-heading">Nombre de Produit dans touts Magasin </div>  {%endif%} 
                             </div>
                         </div>
                     </div>
@@ -51,8 +68,15 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">{{ Utilisateur }}</span></div>
-                                <div class="stat-heading">Utilisateur</div>
+                                <div class="stat-text"><span class="count">{%if user.STOCKTNKT   %}
+                                    {{tsnkc }} </span></div>
+                                    <div class="stat-heading">Nombre de Produit dans Magasin</div> {%endif%}
+                                    {%if user.STOCKTfl  %}
+                                    {{tsfm }} </span></div>
+                                <div class="stat-heading">Nombre de Produit dans Magasin</div>{%endif%}
+                                {% if user.Utilisateur != True %} 
+                                {{nbg }}  </span></div>
+                           <div class="stat-heading">Nombre de Magasin </div>  {%endif%} 
                             </div>
                         </div>
                     </div>

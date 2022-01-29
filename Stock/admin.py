@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Stock.models import User, StockEn, Sorti,Service,Fournisseur,STOCK,Admins,Utilisateurs
+from Stock.models import User, StockEn, Sorti,Service,Fournisseur,STOCK,Admins,Utilisateurs,Room, Message
 
 # Register your models here.
 class UserAdmin(admin.ModelAdmin):
@@ -13,7 +13,8 @@ admin.site.register(Sorti)
 admin.site.register(Service)
 admin.site.register(Fournisseur)
 admin.site.register(STOCK)
-
+admin.site.register(Room)
+admin.site.register(Message)
 
 
 class UtilisateursAdmin(admin.ModelAdmin):

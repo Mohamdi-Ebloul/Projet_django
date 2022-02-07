@@ -7,7 +7,7 @@
     <!-- Widgets  -->
     
     <div class="row">
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="stat-widget-five">
@@ -34,7 +34,7 @@
         
 
 
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="stat-widget-five">
@@ -51,7 +51,7 @@
                                 <div class="stat-heading">Nombre de Produit Sortie</div>{%endif%}
                                 {% if user.Utilisateur != True %} 
                                 {{NPT }}  </span></div>
-                           <div class="stat-heading">Nombre de Produit dans touts Magasin </div>  {%endif%} 
+                           <div class="stat-heading">Nombre Produit dans touts Magasin </div>  {%endif%} 
                             </div>
                         </div>
                     </div>
@@ -59,12 +59,12 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="stat-widget-five">
                         <div class="stat-icon dib flat-color-3">
-                            <i class="fa fa-paper-plane"></i>
+                            <i class="fa fa-cart-plus"></i>
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
@@ -75,7 +75,7 @@
                                     {{tsfm }} </span></div>
                                 <div class="stat-heading">Nombre de Produit dans Magasin</div>{%endif%}
                                 {% if user.Utilisateur != True %} 
-                                {{nbg }}  </span></div>
+                                2 </span></div>
                            <div class="stat-heading">Nombre de Magasin </div>  {%endif%} 
                             </div>
                         </div>
@@ -84,23 +84,6 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="stat-widget-five">
-                        <div class="stat-icon dib flat-color-4">
-                            <i class="fa fa-users"></i>
-                        </div>
-                        <div class="stat-content">
-                            <div class="text-left dib">
-                                <div class="stat-text"><span class="count">{{ Utilisateur }}</span></div>
-                                <div class="stat-heading">Admin</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- /Widgets -->
     
@@ -108,31 +91,72 @@
 
     <!-- Orders -->
     <div class="orders">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="box-title"></h4>
-                    </div>
-                    <div class="card-body--">
-                        <div class="table-stats order-table ov-h">
-                            <table class="table ">
-                                <thead>
-                                    <tr>
+      
                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   
-                                </tbody>
-                            </table>
-                        </div> <!-- /.table-stats -->
-                    </div>
-                </div> <!-- /.card -->
-            </div>  <!-- /.col-lg-8 -->
 
-            
-        </div>
+
+
+
+
+
+
+                                        <div class="row mt-5">
+                                           
+                                    
+                                            <div class="col-md-8">
+                                                <canvas id="myChart" width="400" height="200"></canvas>
+                                                    <script>
+                                                    var ctx = document.getElementById('myChart').getContext('2d');
+                                                    var myChart = new Chart(ctx, {
+                                                        type: 'bar',
+                                                        data: {
+                                                            labels: [{% for STOCK in STOCK %}  '{{ STOCK.Designation }}',  {% endfor %}],
+                                                            datasets: [{
+                                                                label: ' ',
+                                                                data: [{% for STOCK in STOCK %}  {{ STOCK.QTEx }},  {% endfor %}],
+                                                                backgroundColor: [
+                                                                    'rgba(255, 99, 132, 0.8)',
+                                                                    'rgba(54, 162, 235, 0.8)',
+                                                                    'rgba(255, 206, 86, 0.8)',
+                                                                    'rgba(75, 192, 192, 0.8)',
+                                                                    'rgba(153, 102, 255, 0.8)',
+                                                                    'rgba(255, 159, 64, 0.8)',
+                                                                    'rgba(240, 120, 50, 0.8)',
+                                                                    
+                                                                ],
+                                                                borderColor: [
+                                                                    'rgba(255, 99, 132, 1)',
+                                                                    'rgba(54, 162, 235, 1)',
+                                                                    'rgba(255, 206, 86, 1)',
+                                                                    'rgba(75, 192, 192, 1)',
+                                                                    'rgba(153, 102, 255, 1)',
+                                                                    'rgba(255, 159, 64, 1)',
+                                                                    'rgba(240, 120, 50, 1)',
+                                    
+                                                                ],
+                                                                borderWidth: 2
+                                                            }]
+                                                        },
+                                                        options: {
+                                                            scales: {
+                                                                y: {
+                                                                    beginAtZero: true
+                                                                }
+                                                            }
+                                                        }
+                                                    });
+                                                    </script>
+                                            </div>
+                                        </div>
+                                    
+
+
+
+
+
+
+
+        
     </div>
     <!-- /.orders -->
 {% endblock content %}

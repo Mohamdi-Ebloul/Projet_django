@@ -35,7 +35,7 @@ def Aceeil(request):
     l=User.objects.filter()
     
 
-    
+    products = STOCK.objects.all()
     total_Stocknkc = StockEn.objects.filter(STOCKT="nkc").count()
     total_Sortinkc = Sorti.objects.filter(STOCKT="nkc").count()
     total_Stockfm = StockEn.objects.filter(STOCKT="fm").count()
@@ -45,6 +45,7 @@ def Aceeil(request):
     NPT = STOCK.objects.count()
     #nbg = STOCK.objects.filter.count()
     nservice=Service.objects.count()
+    nbg=ts1+ts2
 
     context = {
         #'nbg':nbg,
@@ -56,7 +57,9 @@ def Aceeil(request):
         'tsnkc':ts1,
         'tsfm':ts2,
         'nservice':nservice,
-        'u':l
+        'u':l,
+        'nbg':nbg,
+        "STOCK": products,
                   }
     return render(request,'Aceeil.html',context)
     

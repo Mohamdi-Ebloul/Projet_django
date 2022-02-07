@@ -8,7 +8,7 @@
                 <li class="menu-title">Myapp</li><!-- /.menu-title -->
                 {% if user.Utilisateur != True %}
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-paper-plane"></i>Utlisateur</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users "></i>Utlisateur</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-id-card-o"></i><a href="{% url 'Ajouteuser' %}">Ajouter</a></li>
                         <li><i class="fa fa-th"></i><a href="{% url 'Utilisateur' %}">Lister</a></li>
@@ -38,7 +38,7 @@
 
                 
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-product-hunt"></i>Stock Entrer</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cart-plus"></i>Stock Entrer</a>
                     <ul class="sub-menu children dropdown-menu">
                         
                         {% if user.Utilisateur != True %} 

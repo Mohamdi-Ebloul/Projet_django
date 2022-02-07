@@ -64,7 +64,7 @@ class STOCK(models.Model):
     QTS=models.IntegerField(default=0)
     STOCKT=models.CharField(max_length=220)
     def __str__(self):
-        return self.Designation - self.QTEx
+        return self.Designation
     
 class StockEn(models.Model):
     Designation=models.ForeignKey(STOCK, on_delete=models.CASCADE)

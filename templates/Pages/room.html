@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 0 20px;
-  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
-}
+
 
 .container {
   border: 2px solid #dedede;
@@ -58,8 +46,7 @@ font-family: 'Numans', sans-serif;
 }
 </style>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-</head>
-<body>
+
 <h2>  <a href="{% url 'Acceil' %}"><i class="menu-icon fa fa-laptop"></i>Acceil </a>
 </h2>
 
@@ -141,7 +128,7 @@ setInterval(function(){
 </div>
 
 
-</body>
+
 
 <script type="text/javascript">
   $(document).on('submit','#post-form',function(e){
@@ -163,5 +150,3 @@ setInterval(function(){
     document.getElementById('message').value = ''
   });
 </script>
-
-</html>

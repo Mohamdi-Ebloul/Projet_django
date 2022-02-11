@@ -16,15 +16,6 @@ class TestViews(TestCase):
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'Pages/Utilisateur.html')
-
-    def test_Myapp(self):
-        client=Client()
-
-        response = client.get(reverse('deluser'))
-
-
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'Utilisateur')
-
-
+        
+   
     

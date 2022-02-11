@@ -25,6 +25,7 @@ class UtilisateurForm(forms.Form):
         'data-val': 'true',
         'data-val-required': 'Please enter name',
         
+        
     }))
     address = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
